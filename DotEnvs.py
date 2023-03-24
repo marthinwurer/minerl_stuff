@@ -34,6 +34,8 @@ class DotEnv(gym.Env):
             self.dot_position[1] = min(self.dot_position[1] + 1, self.height - 2)
         elif action == 3:  # Left
             self.dot_position[0] = max(self.dot_position[0] - 1, 0)
+        else:
+            raise ValueError()
 
         # Compute the reward based on the new position of the dot
         distance = np.linalg.norm(self.dot_position - self.goal_position)
