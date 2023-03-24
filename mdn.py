@@ -34,3 +34,9 @@ def gnll_loss(pi, sigma, mu, target):
     gm = distribution(pi, sigma, mu)
     log_likelihood = gm.log_prob(target)
     return -torch.mean(log_likelihood)
+
+
+def gnll_loss_individual(pi, sigma, mu, target):
+    gm = distribution(pi, sigma, mu)
+    log_likelihood = gm.log_prob(target)
+    return -log_likelihood

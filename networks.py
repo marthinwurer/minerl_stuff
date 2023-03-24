@@ -18,6 +18,15 @@ class SkippableLayerNorm(nn.Module):
         return x
 
 
+class SimpleLayerNorm(nn.Module):
+    def __init__(self, norm=True):
+        super().__init__()
+        
+    def forward(self, x):
+        x = F.layer_norm(x, x.size()[1:])
+        return x
+
+
 class WMEncoder(nn.Module):
     def __init__(self):
         super().__init__()
@@ -282,4 +291,23 @@ class VisionVAE(nn.Module):
         vae_out = self.latent(encoded)
         decoded = self.decoder(vae_out[0])
         return decoded, vae_out
+
+
+class ConvNeXtBlock(nn.Module):
+    def __init__(self, channels, kernel_size=7, padding=3, stride=1, activation=nn.GELU, norm=SimpleLayerNorm):
+        super().__init__()
+        self.layer = nn.Sequential(
+            nn.Conv2d(channels, channels, kernel_size, groups=channels, padding=padding, stride=stride),
+            norm(),
+            nn.Conv2d(channels, channels * 4, 1),
+            activation(),
+            nn.Conv2d(channels * 4, channels, 1),
+        )
+    
+    def forward(self, x):
+        x = x + self.layer(x)
+        return x
+
+
+
 

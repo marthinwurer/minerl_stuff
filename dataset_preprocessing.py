@@ -4,6 +4,8 @@ import numpy as np
 from torch.utils.data import Dataset
 from tqdm import tqdm
 
+DATASET_SIZE = 1916597
+
 
 def dump_minerl_dataset(names, output_dir):
     if not isinstance(names, list):
@@ -68,7 +70,6 @@ class MineRlImageDataset(Dataset):
         initial_size = 1916597
         self.transform = transform
         self.pov = np.memmap(base_dir + '/pov.npy', dtype='uint8', mode='r', shape=(initial_size, 64, 64, 3))
-
 
     def __len__(self):
         return self.pov.shape[0]

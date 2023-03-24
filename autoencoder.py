@@ -39,6 +39,11 @@ def abs_loss(inputs, outputs, latents):
     return F.l1_loss(inputs, outputs)
 
 
+def ssim_loss(inputs, outputs, latents):
+    recon = 1 - ssim(inputs, outputs, data_range=1, size_average=True, nonnegative_ssim=True)
+    return recon
+
+
 def reparameterize(mu, logvar):
     std = torch.exp(0.5 * logvar)
     eps = torch.randn_like(std)
@@ -73,6 +78,14 @@ def vae_loss(inputs, outputs, latents):
     # kl scaling from beta vae section 4.2
     kl_scale = z.shape[-1] / (64*64*3)
     kl = kld_loss(mu, logvar) * kl_scale
+    return recon + kl, recon, kl
+
+
+def vae_free_bits_loss(inputs, outputs, latents):
+    z, mu, logvar = latents
+    recon = F.mse_loss(inputs, outputs)
+    # Free bits loss from DreamerV3
+    kl = torch.maximum(torch.tensor([1.0]).to(z.device), kld_loss(mu, logvar)) - 1
     return recon + kl, recon, kl
 
 

@@ -1,0 +1,83 @@
+Papers:
+
+
+Model based RL:
+
+Deep Hierarchical Planning from Pixels
+https://arxiv.org/pdf/2206.04114.pdf
+
+Dreamer:
+https://arxiv.org/pdf/1912.01603.pdf
+
+DreamerV2:
+https://arxiv.org/pdf/2010.02193.pdf
+
+DreamerV3:
+https://arxiv.org/pdf/2301.04104.pdf
+
+
+Other RL Algorithms:
+
+Rainbow:
+https://arxiv.org/pdf/1710.02298.pdf
+Revisiting Fundamentals of Experience Replay: (ablates Rainbow)
+https://arxiv.org/pdf/2007.06700.pdf
+
+DQN:
+https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf
+
+DDPG:
+https://arxiv.org/pdf/1509.02971.pdf
+
+Prioritized Experience Replay:
+https://arxiv.org/pdf/1511.05952.pdf
+
+Distributional Deep Reinforcement Learning with a Mixture of Gaussians
+https://rllab.snu.ac.kr/publications/papers/2019_icra_ddrl_mog.pdf
+
+
+Network Architectures:
+
+ConvNeXt:
+https://arxiv.org/pdf/2201.03545.pdf
+
+Progan:
+https://arxiv.org/pdf/1710.10196.pdf
+
+Differentiable Neural Computer:
+https://clgiles.ist.psu.edu/IST597/materials/papers-computing/DL-computing/2016-graves.pdf
+
+
+Curiosity algorithms:
+
+Intrinsic Curiosity Module:
+https://pathak22.github.io/noreward-rl/resources/icml17.pdf
+
+Meta-Learning Curiosity Algorithms:
+https://arxiv.org/pdf/2003.05325.pdf
+
+REINFORCEMENT LEARNING THROUGH ACTIVE INFERENCE
+https://arxiv.org/pdf/2002.12636.pdf
+
+Action and Perception as Divergence Minimization:
+https://arxiv.org/pdf/2009.01791.pdf
+
+Information is Power: Intrinsic Control via Information Capture
+https://arxiv.org/pdf/2009.01791.pdf
+
+Intrinsic Control of Variational Beliefs in Dynamic Partially-Observed Visual Environments
+https://proceedings.neurips.cc/paper/2021/file/59112692262234e3fad47fa8eabf03a4-Paper.pdf
+
+Curiosity-Driven Exploration for Off-Policy Reinforcement Learning Methods
+https://ieeexplore.ieee.org/abstract/document/8961529
+
+
+Metrics:
+
+Policy Information Capacity: Information-Theoretic Measure for Task Complexity in Deep Reinforcement Learning
+http://proceedings.mlr.press/v139/furuta21a/furuta21a.pdf
+
+
+Random:
+Space is a Latent Sequence:
+https://arxiv.org/pdf/2212.01508.pdf

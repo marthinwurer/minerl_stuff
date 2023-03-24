@@ -32,7 +32,7 @@ import torch.nn as nn
 import torch.nn.modules.conv as conv
 
 
-@functools.cache
+# @functools.cache
 def build_coords(rank, shape, with_r=False):
     if rank == 1:
         batch_size_shape, channel_in_shape, dim_x = shape

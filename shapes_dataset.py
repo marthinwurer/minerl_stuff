@@ -45,6 +45,25 @@ import numpy as np
 import cv2
 
 
+PALLETE = [
+#     [0, 0, 0],
+#     [170, 0, 0],
+#     [0, 170, 0],
+#     [0, 0, 170],
+#     [0, 170, 170],
+#     [170, 0, 170],
+#     [170, 170, 0],
+#     [170, 170, 170],
+#     [255, 255, 0],
+#     [255, 0, 255],
+#     [0, 255, 255],
+    [0, 0, 255],
+    [0, 255, 0],
+    [255, 0, 0],
+    [255, 255, 255],
+]
+
+
 class ShapesDataset:
     """Generates the shapes synthetic dataset. The dataset consists of simple
     shapes (triangles, squares, circles) placed randomly on a blank surface.
@@ -144,7 +163,8 @@ class ShapesDataset:
         # Shape
         shape = random.choice(["square", "circle", "triangle"])
         # Color
-        color = tuple([random.randint(0, 255) for _ in range(3)])
+        # color = tuple([random.randint(0, 255) for _ in range(3)])
+        color = tuple(random.choice(PALLETE))
         # Center x, y
         buffer = 20
         y = random.randint(buffer, height - buffer - 1)
@@ -159,7 +179,8 @@ class ShapesDataset:
         specifications that can be used to draw the image.
         """
         # Pick random background color
-        bg_color = np.array([random.randint(0, 255) for _ in range(3)])
+        # bg_color = np.array([random.randint(0, 255) for _ in range(3)])
+        bg_color = np.array([170, 170, 170])
         # Generate a few random shapes and record their
         # bounding boxes
         shapes = []
@@ -222,7 +243,8 @@ def random_shape(height, width):
     # Shape
     shape = random.choice(["square", "circle", "triangle"])
     # Color
-    color = tuple([random.randint(0, 255) for _ in range(3)])
+#     color = tuple([random.randint(0, 255) for _ in range(3)])
+    color = tuple(random.choice(PALLETE))
     # Center x, y
     buffer = 2
     y = random.randint(buffer, height - buffer - 1)
@@ -238,7 +260,9 @@ def random_image(height, width):
     specifications that can be used to draw the image.
     """
     # Pick random background color
-    bg_color = np.array([random.randint(0, 255) for _ in range(3)])
+#     bg_color = np.array([random.randint(0, 255) for _ in range(3)])
+    bg_color = np.array([170, 170, 170])
+
     # Generate a few random shapes and record their
     # bounding boxes
     shapes = []
